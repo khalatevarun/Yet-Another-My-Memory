@@ -2,6 +2,9 @@ package com.example.android.mymemory.utils
 
 import com.example.android.mymemory.R
 
+
+const val EXTRA_BOARD_SIZE ="EXTRA BOARD SIZE"
+
 val DEFAULT_ICONS = listOf(
     R.drawable.ic_face,
     R.drawable.ic_bedtime,

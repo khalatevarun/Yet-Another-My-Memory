@@ -46,5 +46,8 @@ dependencies {
     // material design components
     implementation 'com.google.android.material:material:1.2.1'
 
+    implementation 'com.github.jinatonic.confetti:confetti:1.1.2'
+
+
 
 }
