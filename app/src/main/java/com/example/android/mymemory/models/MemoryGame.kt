@@ -2,7 +2,10 @@ package com.example.android.mymemory.models
 
 import com.example.android.mymemory.utils.DEFAULT_ICONS
 
-class MemoryGame(private  val boardSize: BoardSize){
+class MemoryGame(
+    private val boardSize: BoardSize,
+   private val customImages: List<String>?
+){
 
 
     val cards: List<MemoryCard>
@@ -13,9 +16,14 @@ class MemoryGame(private  val boardSize: BoardSize){
     private var numCardFlips = 0
     private var indexOfSingleSelectedCard: Int? = null
         init {
-            val choosenImages = DEFAULT_ICONS.shuffled().take(boardSize.getNumPairs())
-            val randomizedImages = (choosenImages + choosenImages).shuffled()
-             cards = randomizedImages.map{MemoryCard(it)}
+            if (customImages == null) {
+                val choosenImages = DEFAULT_ICONS.shuffled().take(boardSize.getNumPairs())
+                val randomizedImages = (choosenImages + choosenImages).shuffled()
+                cards = randomizedImages.map { MemoryCard(it) }
+            }else{
+                val randomziedImages = (customImages +customImages).shuffled()
+                cards = randomziedImages.map { MemoryCard(it.hashCode(),it) }
+            }
         }
 
 

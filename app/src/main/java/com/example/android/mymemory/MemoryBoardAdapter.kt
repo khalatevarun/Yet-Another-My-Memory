@@ -12,6 +12,7 @@ import androidx.core.view.ViewCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.android.mymemory.models.BoardSize
 import com.example.android.mymemory.models.MemoryCard
+import com.squareup.picasso.Picasso
 import kotlin.math.min
 
 class MemoryBoardAdapter(
@@ -66,7 +67,18 @@ class MemoryBoardAdapter(
         fun bind(position: Int) {
 
             val memoryCard = cards[position]
-            imageButton.setImageResource(if(cards[position].isFaceUp) cards[position].identifier else R.drawable.ic_launcher_background)
+            if(memoryCard.isFaceUp) {
+                if (memoryCard.imageUrl != null) {
+                    Picasso.get().load(memoryCard.imageUrl).placeholder(R.drawable.ic_image).into(imageButton)
+                } else {
+                    imageButton.setImageResource(memoryCard.identifier)
+                }
+            }
+                else{
+                    imageButton.setImageResource(R.drawable.ic_launcher_background)
+                }
+
+
 
             imageButton.alpha = if(memoryCard.isMatched) .4f else 1.0f
            val coloStateList = if (memoryCard.isMatched) ContextCompat.getColorStateList(context, R.color.color_gray) else null

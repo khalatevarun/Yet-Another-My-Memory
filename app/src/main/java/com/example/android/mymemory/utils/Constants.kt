@@ -4,6 +4,7 @@ import com.example.android.mymemory.R
 
 
 const val EXTRA_BOARD_SIZE ="EXTRA BOARD SIZE"
+const val EXTRA_GAME_NAME = "EXTRA GAME NAME"
 
 val DEFAULT_ICONS = listOf(
     R.drawable.ic_face,
