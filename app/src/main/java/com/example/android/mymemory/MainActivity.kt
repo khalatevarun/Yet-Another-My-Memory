@@ -7,6 +7,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.android.mymemory.models.BoardSize
+import com.example.android.mymemory.models.MemoryCard
+import com.example.android.mymemory.models.MemoryGame
 import com.example.android.mymemory.utils.DEFAULT_ICONS
 import java.util.concurrent.TimeUnit
 
@@ -32,10 +34,15 @@ class MainActivity : AppCompatActivity() {
         tvNumPairs = findViewById(R.id.tvNumPairs)
         tvTimer = findViewById(R.id.tvTimer)
 
-        val choosenImages = DEFAULT_ICONS.shuffled().take(boardSize.getNumPairs())
-        val randomizedImages = (choosenImages + choosenImages).shuffled()
+        val memoryGame =  MemoryGame(boardSize)
 
-        rvBoard.adapter = MemoryBoardAdapter(this, boardSize, randomizedImages)
+
+        rvBoard.adapter = MemoryBoardAdapter(this, boardSize, memoryGame.cards, object: MemoryBoardAdapter.CardClickListner{
+            override fun onCardClicked(position: Int) {
+
+            }
+
+        })
         rvBoard.setHasFixedSize(true)
         rvBoard.layoutManager = GridLayoutManager(this, boardSize.getWidth())
 
