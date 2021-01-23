@@ -10,7 +10,7 @@ class MemoryGame(
 
     val cards: List<MemoryCard>
     var numPairsFound = 0
-    var TimeOver = false
+
     var bonus = true
 
     private var numCardFlips = 0

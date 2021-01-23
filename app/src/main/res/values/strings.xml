@@ -1,3 +1,32 @@
 <resources>
     <string name="app_name">My Memory</string>
+    <string name="welcome_text">Welcome to the Memory Game</string>
+    <string name="description_text">Challenge yourself with 3 different board sizes<br/><br/>
+        Create custome game<br/><br/>
+        Download custom game </string>
+    <string name="start_button">Start Game</string>
+    <string name="moves_text">Moves: 0</string>
+    <string name="pairse_text">Pairs: 0 / 4</string>
+    <string name="game_timer">Game ends in : 00</string>
+    <string name="save_button">Save</string>
+    <string name="game_name_hint">Game name ( example: \"Panda Fun\" )</string>
+    <string name="game_not_started">Game has not started yet</string>
+    <string name="game_over">Game over, you exceeded the time limit</string>
+    <string name="won">You Won!</string>
+    <string name="game_ended">Game ended</string>
+    <string name="congratulate">You\'ve won! Congratulations.</string>
+    <string name="invalid_move">Invalid move!</string>
+    <string name="already_won">You already won!</string>
+    <string name="cancel">Cancel</string>
+    <string name="ok">OK</string>
+    <string name="choose_new_size">Choose new size</string>
+    <string name="create_board">Create your own memory board</string>
+    <string name="fetch_game">Fetch memory game</string>
+    <string name="quit_current">Quit your current game?</string>
+    <string name="get_Access">In order to create a custom game, you need to provide access to your photos</string>
+    <string name="fail_game_creation">Failed game creation</string>
+    <string name="upload_image_fail">Failed to upload to image</string>
+    <string name="encounter_while_saving">Encounter error while saving memory game</string>
+    <string name="name_taken">Name taken</string>
+    <string name="choose_pics">Choose pics</string>
 </resources>

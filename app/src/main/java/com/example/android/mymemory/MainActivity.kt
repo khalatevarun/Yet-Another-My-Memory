@@ -50,6 +50,7 @@ class MainActivity : AppCompatActivity() {
     private  var customGameImages: List<String>? = null
     private lateinit var adapter: MemoryBoardAdapter
     private var gameOver : Boolean = true
+    private var gameStarted: Boolean = false
 
     private val db = Firebase.firestore
     private var gameName: String? = null
@@ -89,7 +90,7 @@ class MainActivity : AppCompatActivity() {
         when(item.itemId){
             R.id.mi_refresh-> {
 
-                showAlertDialog("Quit your current game?", null, View.OnClickListener {
+                showAlertDialog(getString(R.string.quit_current), null, View.OnClickListener {
                    cancelTimer()
                     setupBoard()
                 })
@@ -116,7 +117,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun showDownloadDialog() {
         val boardDownloadView=LayoutInflater.from(this).inflate(R.layout.dialog_download_board,null)
-        showAlertDialog("Fetch memory game",boardDownloadView,View.OnClickListener {
+        showAlertDialog(getString(R.string.fetch_game),boardDownloadView,View.OnClickListener {
             val etDownloadGame=boardDownloadView.findViewById<EditText>(R.id.edDownloadGame)
             val gameToDownload=etDownloadGame.text.toString().trim()
             downloadGame(gameToDownload)
@@ -126,7 +127,7 @@ class MainActivity : AppCompatActivity() {
     private fun showCreationDialog() {
         val boardSizeView = LayoutInflater.from(this).inflate(R.layout.dialog_board_size, null)
         val radioGroupSize = boardSizeView.findViewById<RadioGroup>(R.id.radioGroup)
-        showAlertDialog("Create your own memory board",boardSizeView,View.OnClickListener {
+        showAlertDialog(getString(R.string.create_board),boardSizeView,View.OnClickListener {
 
           val   desiredBoardSize = when(radioGroupSize.checkedRadioButtonId){
                 R.id.rbEasy -> BoardSize.EASY
@@ -192,7 +193,7 @@ class MainActivity : AppCompatActivity() {
                 BoardSize.HARD -> radioGroupSize.check(R.id.rbHard)
 
             }
-        showAlertDialog("Choose new size",boardSizeView,View.OnClickListener {
+        showAlertDialog(getString(R.string.choose_new_size),boardSizeView,View.OnClickListener {
 
             boardSize = when(radioGroupSize.checkedRadioButtonId){
                 R.id.rbEasy -> BoardSize.EASY
@@ -211,8 +212,8 @@ class MainActivity : AppCompatActivity() {
        AlertDialog.Builder(this)
            .setTitle(title)
            .setView(view)
-           .setNegativeButton("Cancel",null)
-           .setPositiveButton("OK"){_, _ ->
+           .setNegativeButton(getString(R.string.cancel),null)
+           .setPositiveButton(getString(R.string.ok)){_, _ ->
 
                 positiveClickListener.onClick(null)
            }.show()
@@ -254,7 +255,7 @@ class MainActivity : AppCompatActivity() {
         memoryGame =  MemoryGame(boardSize, customGameImages)
         adapter = MemoryBoardAdapter(this, boardSize, memoryGame.cards, object: MemoryBoardAdapter.CardClickListner{
             override fun onCardClicked(position: Int) {
-                if(!gameOver)
+
                     updateGameWithFlip(position)
 
 
@@ -275,17 +276,32 @@ class MainActivity : AppCompatActivity() {
 
 
         if(memoryGame.haveWonGame()){
-            Snackbar.make(clRoot, "You already won!", Snackbar.LENGTH_LONG).show()
+            Snackbar.make(clRoot, getString(R.string.already_won), Snackbar.LENGTH_LONG).show()
             return
         }
         if(memoryGame.isCardFaceUp(position)){
-            Snackbar.make(clRoot, "Invalid move!", Snackbar.LENGTH_SHORT).show()
+            Snackbar.make(clRoot, getString(R.string.invalid_move), Snackbar.LENGTH_SHORT).show()
             return
         }
-      /**  if(memoryGame.isTimeOver()){
+
+        if(gameOver) {
+
+            if(!gameStarted){
+                Snackbar.make(clRoot, getString(R.string.game_not_started), Snackbar.LENGTH_SHORT).show()
+                return
+
+            }
+            Snackbar.make(clRoot, getString(R.string.game_over), Snackbar.LENGTH_SHORT).show()
             return
+
         }
-      **/
+
+
+
+
+
+
+
 
 
         if(memoryGame.flipCard(position)){
@@ -306,10 +322,12 @@ class MainActivity : AppCompatActivity() {
             tvNumPairs.text="Pairs: ${memoryGame.numPairsFound}/${boardSize.getNumPairs()}"
             if (memoryGame.haveWonGame()){
 
-                Snackbar.make(clRoot,"You've won! Congratulations.",Snackbar.LENGTH_LONG).show()
-                CommonConfetti.rainingConfetti(clRoot, intArrayOf(Color.BLUE, Color.YELLOW, Color.MAGENTA)).oneShot()
+                Snackbar.make(clRoot,getString(R.string.congratulate),Snackbar.LENGTH_LONG).show()
+                CommonConfetti.rainingConfetti(clRoot, intArrayOf(Color.BLUE, Color.MAGENTA, Color.CYAN)).oneShot()
                 cancelTimer()
-                tvTimer.text = "Game ended! You won!!"
+                tvTimer.setTextColor(getResources().getColor(R.color.color_progress_full))
+                tvTimer.text = "You won!"
+                gameOver=true
             }
         }
 
@@ -327,11 +345,29 @@ class MainActivity : AppCompatActivity() {
     //Call this method to start timer on activity start
     private fun startTimer(){
         timer = Timer(5000);
+        tvTimer.setTextColor(getResources().getColor(R.color.color_red))
         timer?.start()
+        gameStarted=false
     }
 
     private fun startTimer2(){
+        gameStarted=true
+        when(boardSize){
+            BoardSize.EASY -> {
+                timer2 = Timer2(10000);
+
+            }
+            BoardSize.MEDIUM -> {
+                timer2 = Timer2(15000);
+
+            }
+            BoardSize.HARD -> {
+                timer2 = Timer2(20000);
+
+            }
+        }
         timer2 = Timer2(15000);
+        tvTimer.setTextColor(getResources().getColor(R.color.black))
         timer2?.start()
     }
 
@@ -352,6 +388,8 @@ class MainActivity : AppCompatActivity() {
         var millisUntilFinished:Long = 0
         override fun onFinish() {
             gameOver = false
+
+
            startTimer2()
 
 
@@ -366,9 +404,12 @@ class MainActivity : AppCompatActivity() {
     inner class Timer2(miliis:Long) : CountDownTimer(miliis,1000){
         var millisUntilFinished:Long = 0
         override fun onFinish() {
-            tvTimer.text = "Game ended!"
+
+            tvTimer.text = getString(R.string.game_ended)
+            tvTimer.setTextColor(getResources().getColor(R.color.color_red))
             //  handler.removeCallbacks(runnable)
             gameOver =true
+
 
 
         }

@@ -124,7 +124,7 @@ class CreateActivity : AppCompatActivity() {
                 launchIntentForPhotos()
             }
                 else{
-                    Toast.makeText(this, "In order to create a custom game, you need to provide access to your photos", Toast.LENGTH_LONG).show()
+                    Toast.makeText(this, getString(R.string.get_Access), Toast.LENGTH_LONG).show()
                 }
 
             }
@@ -177,7 +177,7 @@ class CreateActivity : AppCompatActivity() {
        val intent = Intent(Intent.ACTION_PICK)
         intent.type = "image/*"
         intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true)
-        startActivityForResult(Intent.createChooser(intent, "Choose pics"), PICK_PHOTO_CODE)
+        startActivityForResult(Intent.createChooser(intent, getString(R.string.choose_pics)), PICK_PHOTO_CODE)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -199,7 +199,7 @@ class CreateActivity : AppCompatActivity() {
         db.collection("games").document(customGameName).get().addOnSuccessListener { document ->
             if(document != null && document.data != null){
                 AlertDialog.Builder(this)
-                    .setTitle("Name taken")
+                    .setTitle(R.string.name_taken)
                     .setMessage("A game already exists with the name '$customGameName'. Please choose another")
                     .setPositiveButton("OK",null)
                     .show()
@@ -210,7 +210,7 @@ class CreateActivity : AppCompatActivity() {
                 handleAllImagesUploading(customGameName)
             }
         }.addOnFailureListener{
-            Toast.makeText(this,"Encounter error while saving memory game", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this,getString(R.string.encounter_while_saving), Toast.LENGTH_SHORT).show()
         }
 
 
@@ -231,7 +231,7 @@ class CreateActivity : AppCompatActivity() {
 
                 }.addOnCompleteListener { downloadUrlTask ->
                     if (!downloadUrlTask.isSuccessful) {
-                        Toast.makeText(this, "Failed to upload to image", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, R.string.upload_image_fail, Toast.LENGTH_SHORT).show()
                         didEnounterError = true
                         return@addOnCompleteListener
 
@@ -258,7 +258,7 @@ class CreateActivity : AppCompatActivity() {
                     .addOnCompleteListener{ gameCreationTask->
                         pbUploading.visibility = View.GONE
                         if(!gameCreationTask.isSuccessful){
-                            Toast.makeText(this,"Failed game creation", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this,getString(R.string.fail_game_creation), Toast.LENGTH_SHORT).show()
                             return@addOnCompleteListener
 
                         }

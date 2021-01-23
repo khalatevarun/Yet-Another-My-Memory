@@ -5,6 +5,6 @@ import com.google.firebase.firestore.PropertyName
 class UserImageList {
 
     @PropertyName("images")
-    var images: List<String>? = null
+    val images: List<String>? = null
 
 }

@@ -19,7 +19,7 @@
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:background="?attr/colorSecondaryVariant"
+        android:background="@color/color_light_blue"
         app:layout_constraintStart_toStartOf="parent">
 
         <androidx.cardview.widget.CardView
@@ -33,9 +33,10 @@
                 android:id="@+id/tvNumMoves"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:fontFamily="@font/source_sans_pro"
                 android:gravity="center"
                 android:padding="8dp"
-                android:text="Moves: 0"
+                android:text="@string/moves_text"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large" />
         </androidx.cardview.widget.CardView>
 
@@ -50,9 +51,10 @@
                 android:id="@+id/tvNumPairs"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:fontFamily="@font/source_sans_pro"
                 android:gravity="center"
                 android:padding="8dp"
-                android:text="Pairs: 0/4"
+                android:text="@string/pairse_text"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large" />
         </androidx.cardview.widget.CardView>
 
@@ -79,8 +81,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
+        android:fontFamily="@font/source_sans_pro"
         android:gravity="center"
-        android:text="Game ends in : 00"
+        android:text="@string/game_timer"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/rvBoard"
 
