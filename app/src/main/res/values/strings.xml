@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">My Memory</string>
+    <string name="app_name">YAMM</string>
     <string name="welcome_text">Welcome to the Memory Game</string>
     <string name="description_text">Challenge yourself with 3 different board sizes<br/><br/>
         Create custome game<br/><br/>
