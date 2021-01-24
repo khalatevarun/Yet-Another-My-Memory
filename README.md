@@ -25,13 +25,13 @@ Following is a sneak peek of how the interface looks. To use the app live, head 
     Match all the pairs within limited time with a bonus of 5 secs for every correct pair
      <ul>
   <li>
-    Easy - 15 seconds
+    Easy - 10 seconds
   </li>
        <li>
-    Medium - 20 seconds
+    Medium - 15 seconds
   </li>
         <li>
-    Hard - 25 seconds
+    Hard - 20 seconds
   </li>
   </li>
     </ul>
