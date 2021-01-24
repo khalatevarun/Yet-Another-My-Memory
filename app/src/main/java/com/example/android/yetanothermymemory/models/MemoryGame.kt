@@ -1,6 +1,6 @@
-package com.example.android.mymemory.models
+package com.example.android.yetanothermymemory.models
 
-import com.example.android.mymemory.utils.DEFAULT_ICONS
+import com.example.android.yetanothermymemory.utils.DEFAULT_ICONS
 
 class MemoryGame(
     private val boardSize: BoardSize,

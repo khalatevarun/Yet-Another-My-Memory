@@ -1,6 +1,4 @@
-package com.example.android.mymemory.models
-
-import org.intellij.lang.annotations.Identifier
+package com.example.android.yetanothermymemory.models
 
 data class MemoryCard(
 

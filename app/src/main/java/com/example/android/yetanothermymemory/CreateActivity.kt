@@ -1,4 +1,4 @@
-package com.example.android.mymemory
+package com.example.android.yetanothermymemory
 
 import android.app.Activity
 import android.app.AlertDialog
@@ -20,12 +20,11 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ProgressBar
 import android.widget.Toast
-import androidx.core.app.ActivityCompat.startActivityForResult
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.android.mymemory.models.BoardSize
-import com.example.android.mymemory.utils.EXTRA_BOARD_SIZE
-import com.example.android.mymemory.utils.EXTRA_GAME_NAME
+import com.example.android.yetanothermymemory.models.BoardSize
+import com.example.android.yetanothermymemory.utils.EXTRA_BOARD_SIZE
+import com.example.android.yetanothermymemory.utils.EXTRA_GAME_NAME
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage

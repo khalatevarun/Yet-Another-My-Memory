@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.android.mymemory">
+    package="com.example.android.yetanothermymemory">
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -12,16 +12,16 @@
         android:roundIcon="@drawable/app_icon"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyMemory">
-        <activity android:name=".StartScreen" android:theme="@style/Theme2">
+        <activity android:name="com.example.android.yetanothermymemory.StartScreen" android:theme="@style/Theme2">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"  />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".CreateActivity"  />
+        <activity android:name="com.example.android.yetanothermymemory.CreateActivity"  />
         <activity
-            android:name=".MainActivity"
+            android:name="com.example.android.yetanothermymemory.MainActivity"
             android:screenOrientation="portrait">
 
         </activity>

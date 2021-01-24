@@ -1,4 +1,4 @@
-package com.example.android.mymemory
+package com.example.android.yetanothermymemory
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity

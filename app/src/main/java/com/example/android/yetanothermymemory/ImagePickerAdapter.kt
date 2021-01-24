@@ -1,4 +1,4 @@
-package com.example.android.mymemory
+package com.example.android.yetanothermymemory
 
 import android.content.Context
 import android.net.Uri
@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.android.mymemory.models.BoardSize
+import com.example.android.yetanothermymemory.models.BoardSize
 import kotlin.math.min
 
 class ImagePickerAdapter(

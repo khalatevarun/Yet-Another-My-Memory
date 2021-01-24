@@ -1,4 +1,4 @@
-package com.example.android.mymemory
+package com.example.android.yetanothermymemory
 
 import android.graphics.Bitmap
 

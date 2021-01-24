@@ -1,4 +1,4 @@
-package com.example.android.mymemory
+package com.example.android.yetanothermymemory
 
 import android.content.Context
 import android.util.Log
@@ -10,8 +10,8 @@ import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.recyclerview.widget.RecyclerView
-import com.example.android.mymemory.models.BoardSize
-import com.example.android.mymemory.models.MemoryCard
+import com.example.android.yetanothermymemory.models.BoardSize
+import com.example.android.yetanothermymemory.models.MemoryCard
 import com.squareup.picasso.Picasso
 import kotlin.math.min
 

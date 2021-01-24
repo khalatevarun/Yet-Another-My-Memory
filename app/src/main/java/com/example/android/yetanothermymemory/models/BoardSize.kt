@@ -1,4 +1,4 @@
-package com.example.android.mymemory.models
+package com.example.android.yetanothermymemory.models
 
 enum class BoardSize( val numCards: Int){
     EASY(8),

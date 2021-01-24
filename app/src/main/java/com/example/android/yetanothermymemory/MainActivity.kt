@@ -1,4 +1,4 @@
-package com.example.android.mymemory
+package com.example.android.yetanothermymemory
 
 import android.animation.ArgbEvaluator
 import android.app.Activity
@@ -6,7 +6,6 @@ import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.os.CountDownTimer
-import android.text.Layout
 import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuItem
@@ -16,15 +15,14 @@ import android.widget.RadioGroup
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.android.mymemory.models.BoardSize
-import com.example.android.mymemory.models.MemoryGame
-import com.example.android.mymemory.utils.EXTRA_BOARD_SIZE
-import com.example.android.mymemory.utils.EXTRA_GAME_NAME
+import com.example.android.yetanothermymemory.models.BoardSize
+import com.example.android.yetanothermymemory.models.MemoryGame
+import com.example.android.yetanothermymemory.utils.EXTRA_BOARD_SIZE
+import com.example.android.yetanothermymemory.utils.EXTRA_GAME_NAME
 import com.github.jinatonic.confetti.CommonConfetti
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.firestore.ktx.firestore

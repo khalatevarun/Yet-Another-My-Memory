@@ -1,6 +1,6 @@
-package com.example.android.mymemory.utils
+package com.example.android.yetanothermymemory.utils
 
-import com.example.android.mymemory.R
+import com.example.android.yetanothermymemory.R
 
 
 const val EXTRA_BOARD_SIZE ="EXTRA BOARD SIZE"
