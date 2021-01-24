@@ -13,7 +13,7 @@ Yet-Another-My-Memory is an image matching brain excercise game developed using 
 
 <h2>  Screenshots </h2>
 
-Following is a sneak peek of how the interface looks. To use the app live, head on over to the [link](https://drive.google.com/file/d/1W2vFEYgKiq5CR3YCo8o9Dp55yEcfUw-l/view?usp=sharing)
+Following is a sneak peek of how the interface looks. To use the app live, head on over to the [link](https://drive.google.com/drive/u/1/folders/12-iARFJlMkZh8DyR-PwtAYXty5oACiTR)
 
 | Start Game                               | Play Game                             | Game Won                                | Create Game                          |
 | ------------------------------------ | ------------------------------------ | ------------------------------------ | ------------------------------------ | 
